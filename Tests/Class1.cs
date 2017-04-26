@@ -57,5 +57,17 @@ namespace Tests
 
             Assert.That(reviewCollection.GetReviewCount("The Abyss", 4), Is.EqualTo(2));
         }
+
+        [Test]
+        public void Name_Of_Reviewer_Defaults_To_Anonymous()
+        {
+            var reviewCollection = new ReviewCollection();
+
+            var review = new Review("The Abyss", 4, string.Empty, "Pretty good");
+
+            reviewCollection.Add(review);
+
+            Assert.That(reviewCollection.GetReviews("The Abyss").First.Reviewer, Is.EqualTo("Anonymous"));
+        }
     }
 }
