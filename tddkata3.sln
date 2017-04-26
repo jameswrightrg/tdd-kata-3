@@ -6,6 +6,9 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "tddkata3", "tddkata3\tddkata3.csproj", "{45AF4094-D4AE-4342-9779-459A92136EF3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{8F13EF8E-E941-49E2-86A0-0BAD82D2DBFB}"
+	ProjectSection(ProjectDependencies) = postProject
+		{45AF4094-D4AE-4342-9779-459A92136EF3} = {45AF4094-D4AE-4342-9779-459A92136EF3}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
