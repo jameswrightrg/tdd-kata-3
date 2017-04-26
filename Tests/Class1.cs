@@ -26,7 +26,9 @@ namespace Tests
             var reviewCollection = new ReviewCollection();
             var review = new Review("The Abyss", 4, "James Wright", "Pretty good");
 
-            Assert.That(review.GetMovieNames(), Is.EquivalentTo(new[] {"The Abyss"}));
+            reviewCollection.Add(review);
+
+            Assert.That(reviewCollection.GetMovieNames(), Is.EquivalentTo(new[] {"The Abyss"}));
         }
     }
 }
