@@ -43,5 +43,19 @@ namespace Tests
 
             Assert.That(reviewCollection.GetAverageRating("The Abyss"), Is.EqualTo(3));
         }
+
+        [Test]
+        public void Get_Number_Of_Reviews_For_Particular_Rating()
+        {
+            var reviewCollection = new ReviewCollection();
+
+            var review1 = new Review("The Abyss", 4, "James Wright", "Pretty good");
+            var review2 = new Review("The Abyss", 4, "James Wright", "Pretty poor");
+
+            reviewCollection.Add(review1);
+            reviewCollection.Add(review2);
+
+            Assert.That(reviewCollection.GetReviewCount("The Abyss", 4), Is.EqualTo(2));
+        }
     }
 }
