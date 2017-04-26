@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices;
 
@@ -9,6 +10,10 @@ namespace tddkata3
         private readonly List<Review> m_Reviews = new List<Review>(); 
         public void Add(Review review)
         {
+            if (review.Rating > 5 || review.Rating < 1)
+            {
+                throw new ArgumentOutOfRangeException(nameof(review));
+            }
             m_Reviews.Add(review);
         }
 
