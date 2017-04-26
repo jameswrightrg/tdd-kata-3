@@ -89,12 +89,15 @@ namespace Tests
             var review1 = new Review("The Abyss", 4, "James Wright", "Pretty good");
             var review2 = new Review("The Abyss", 2, "James Wright", "Pretty poor");
 
+            reviewCollection.Add(review1);
+            reviewCollection.Add(review2);
+
             Assert.That(reviewCollection.PrintNumberOfReviews("The Abyss"), Is.EqualTo(
                 "5 0" + Environment.NewLine +
                 "4 1" + Environment.NewLine +
                 "3 0" + Environment.NewLine +
                 "2 1" + Environment.NewLine +
-                "1 0"
+                "1 0" + Environment.NewLine
                 ));
 
         }

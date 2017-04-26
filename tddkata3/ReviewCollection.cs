@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices;
+using System.Text;
 
 namespace tddkata3
 {
@@ -36,6 +37,18 @@ namespace tddkata3
         public IEnumerable<Review> GetReviews(string movieName)
         {
             return m_Reviews.Where(r => r.MovieName == movieName);
+        }
+
+        public string PrintNumberOfReviews(string movieName)
+        {
+            var stringBuilder = new StringBuilder();
+
+            for (var i = 5; i > 0; i--)
+            {
+                stringBuilder.AppendLine(i + " " + GetReviewCount(movieName, i));
+            }
+
+            return stringBuilder.ToString();
         }
     }
 }
