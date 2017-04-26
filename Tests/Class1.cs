@@ -30,5 +30,18 @@ namespace Tests
 
             Assert.That(reviewCollection.GetMovieNames(), Is.EquivalentTo(new[] {"The Abyss"}));
         }
+
+        [Test]
+        public void Calculates_Average_Rating_For_Movie()
+        {
+            var reviewCollection = new ReviewCollection();
+            var review1 = new Review("The Abyss", 4, "James Wright", "Pretty good");
+            var review2 = new Review("The Abyss", 2, "James Wright", "Pretty poor");
+
+            reviewCollection.Add(review1);
+            reviewCollection.Add(review2);
+
+            Assert.That(reviewCollection.GetAverageRating("The Abyss"), Is.EqualTo(3));
+        }
     }
 }
