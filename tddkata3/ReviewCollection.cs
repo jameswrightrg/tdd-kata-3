@@ -20,12 +20,17 @@ namespace tddkata3
         public double GetAverageRating(string movieName)
         {
             var scores = m_Reviews.Where(r => r.MovieName == movieName);
-            return scores.Average(x => x.m_Rating);
+            return scores.Average(x => x.Rating);
         }
 
         public int GetReviewCount(string movieName, int rating)
         {
-            return m_Reviews.Count(r => r.MovieName == movieName && r.m_Rating == rating);
+            return m_Reviews.Count(r => r.MovieName == movieName && r.Rating == rating);
+        }
+
+        public IEnumerable<Review> GetReviews(string movieName)
+        {
+            return m_Reviews.Where(r => r.MovieName == movieName);
         }
     }
 }
