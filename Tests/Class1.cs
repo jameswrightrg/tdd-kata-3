@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using NUnit.Framework;
@@ -67,7 +68,17 @@ namespace Tests
 
             reviewCollection.Add(review);
 
-            Assert.That(reviewCollection.GetReviews("The Abyss").First.Reviewer, Is.EqualTo("Anonymous"));
+            Assert.That(reviewCollection.GetReviews("The Abyss").First().Reviewer, Is.EqualTo("Anonymous"));
+        }
+
+        [Test]
+        public void Review_Should_Be_Within_Set_Range()
+        {
+            var reviewCollection = new ReviewCollection();
+
+            var review = new Review("The Abyss", 6, string.Empty, "Amazingly good");
+
+            Assert.Throws<ArgumentOutOfRangeException>(() => reviewCollection.Add(review));
         }
     }
 }
