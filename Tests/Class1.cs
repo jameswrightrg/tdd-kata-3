@@ -80,5 +80,23 @@ namespace Tests
 
             Assert.Throws<ArgumentOutOfRangeException>(() => reviewCollection.Add(review));
         }
+
+        [Test]
+        public void Prints_Number_Of_Reviews_For_Each_Rating()
+        {
+            var reviewCollection = new ReviewCollection();
+
+            var review1 = new Review("The Abyss", 4, "James Wright", "Pretty good");
+            var review2 = new Review("The Abyss", 2, "James Wright", "Pretty poor");
+
+            Assert.That(reviewCollection.PrintNumberOfReviews("The Abyss"), Is.EqualTo(
+                "5 0" + Environment.NewLine +
+                "4 1" + Environment.NewLine +
+                "3 0" + Environment.NewLine +
+                "2 1" + Environment.NewLine +
+                "1 0"
+                ));
+
+        }
     }
 }
