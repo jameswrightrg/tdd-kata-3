@@ -16,5 +16,11 @@ namespace tddkata3
         {
             return m_Reviews.Select(r => r.MovieName);
         }
+
+        public double GetAverageRating(string movieName)
+        {
+            var scores = m_Reviews.Where(r => r.MovieName == movieName);
+            return scores.Average(x => x.m_Rating);
+        }
     }
 }
